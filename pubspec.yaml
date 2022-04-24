@@ -30,7 +30,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
@@ -38,6 +37,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_svg: ^1.0.3
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -57,6 +58,23 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  assets:
+    - assets/svg/bank_withdraw_blue.svg
+    - assets/svg/bank_withdraw_white.svg
+    - assets/svg/drawer_icon.svg
+    - assets/svg/ellipse_bottom_blue.svg
+    - assets/svg/ellipse_bottom_pink.svg
+    - assets/svg/ellipse_top_blue.svg
+    - assets/svg/ellipse_top_pink.svg
+    - assets/svg/insight_tracking_blue.svg
+    - assets/svg/insight_tracking_white.svg
+    - assets/svg/money_transfer_blue.svg
+    - assets/svg/money_transfer_white.svg
+    - assets/images/mastercard_logo.png
+    - assets/images/nike_photo.png
+    - assets/images/uber_photo.png
+    - assets/images/user_image.png
+    - assets/images/user_photo.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
