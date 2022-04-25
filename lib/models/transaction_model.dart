@@ -6,13 +6,13 @@ class TransactionModel {
 
   TransactionModel(this.name, this.photo, this.date, this.amount);
 }
-/*
+
 List<TransactionModel> transactions = transactionData
     .map((item) => TransactionModel(
     item['name'], item['photo'], item['date'], item['amount']))
-    .toList();*/
+    .toList();
 
-var transactionData = [
+List<Map<String,dynamic>> transactionData = [
   {
     "name": "Uber Ride",
     "photo": "assets/images/uber_photo.png",

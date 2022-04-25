@@ -11,7 +11,6 @@ class CardModel {
       this.cardBackground, this.cardElementTop, this.cardElementBottom);
 }
 
-/*
 List<CardModel> cards = cardData.map(
       (item) => CardModel(
     item['user'],
@@ -23,9 +22,8 @@ List<CardModel> cards = cardData.map(
     item['cardElementBottom'],
   ),
 ).toList();
-*/
 
-var cardData = [
+List<Map<String,dynamic>> cardData = [
   {
     "user": "Amanda Alex",
     "cardNumber": "**** **** **** 1425",

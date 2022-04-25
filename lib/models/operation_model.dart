@@ -5,11 +5,11 @@ class OperationModel {
 
   OperationModel(this.name, this.selectedIcon, this.unselectedIcon);
 }
-/*
-List<OperationModel> datas = operationsData.map((item) =>
-    OperationModel(item['name'], item['selectedIcon'], item['unselectedIcon'])).toList();*/
 
-var operationsData = [
+List<OperationModel> datas = operationsData.map((item) =>
+    OperationModel(item['name'], item['selectedIcon'], item['unselectedIcon'])).toList();
+
+List<Map<String,dynamic>> operationsData = [
   {
     "name": "Money\nTransfer",
     "selectedIcon": "assets/svg/money_transfer_white.svg",
