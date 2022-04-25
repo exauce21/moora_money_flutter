@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:moora_money_flutter/constants/color_constant.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -38,6 +40,29 @@ class _HomeScreenState extends State<HomeScreen> {
                      ),
                    )
                  ],
+              ),
+            ),
+
+            //Card Section
+            SizedBox(
+              height: 25,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16, bottom: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text('Good Morning', style: GoogleFonts.inter(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: kBlackColor
+                  ),),
+                  Text('Exauce Yanga', style: GoogleFonts.inter(
+                      fontSize: 36,
+                      fontWeight: FontWeight.w700,
+                      color: kBlackColor
+                  ),)
+                ],
               ),
             )
           ],
