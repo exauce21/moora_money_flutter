@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:moora_money_flutter/constants/color_constant.dart';
 import 'package:moora_money_flutter/models/card_model.dart';
+import 'package:moora_money_flutter/models/operation_model.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,6 +12,19 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  //Curent
+  int current = 0;
+
+  //Handle Indicateur
+  List<T> map<T>(List list, Function handler) {
+    List<T> result = [];
+    for (var i = 0; i < list.length; i++) {
+      result.add(handler(i, list[i]));
+    }
+
+    return result;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,26 +35,26 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             //Container top barre AppBar
             Container(
-              margin: EdgeInsets.only(left: 16, right: 16, top: 16),
+              margin: const EdgeInsets.only(left: 16, right: 16, top: 16),
               child: Row(
                 //espace entre menu et profil
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                 children: <Widget>[
-                   GestureDetector(
-                     onTap: (){
-                       print('Drawer Tapped');
-                     },
-                     child : SvgPicture.asset('assets/svg/drawer_icon.svg'),
-                   ),
-                   Container(
-                     height: 59,
-                     width: 59,
-                     decoration: BoxDecoration(
-                       borderRadius: BorderRadius.circular(50),
-                       image: DecorationImage(image: AssetImage('assets/images/user_image.png'))
-                     ),
-                   )
-                 ],
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () {
+                      print('Drawer Tapped');
+                    },
+                    child: SvgPicture.asset('assets/svg/drawer_icon.svg'),
+                  ),
+                  Container(
+                    height: 59,
+                    width: 59,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        image: const DecorationImage(
+                            image: AssetImage('assets/images/user_image.png'))),
+                  )
+                ],
               ),
             ),
 
@@ -53,26 +67,32 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Good Morning', style: GoogleFonts.inter(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: kBlackColor
-                  ),),
-                  Text('Exauce Yanga', style: GoogleFonts.inter(
-                      fontSize: 36,
-                      fontWeight: FontWeight.w700,
-                      color: kBlackColor
-                  ),)
+                  Text(
+                    'Good Morning',
+                    style: GoogleFonts.inter(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        color: kBlackColor),
+                  ),
+                  Text(
+                    'Exauce Yanga',
+                    style: GoogleFonts.inter(
+                        fontSize: 36,
+                        fontWeight: FontWeight.w700,
+                        color: kBlackColor),
+                  )
                 ],
               ),
             ),
+
+            //List card bank
             Container(
               height: 199,
               child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(left: 16, right: 6),
-                itemCount:  cards.length,
-                  itemBuilder: (context, index){
+                  scrollDirection: Axis.horizontal,
+                  padding: EdgeInsets.only(left: 16, right: 6),
+                  itemCount: cards.length,
+                  itemBuilder: (context, index) {
                     return Container(
                       margin: EdgeInsets.only(right: 10),
                       height: 199,
@@ -84,77 +104,212 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Stack(
                         children: <Widget>[
                           Positioned(
-                              child: SvgPicture.asset(cards[index].cardElementTop)),
+                              child: SvgPicture.asset(
+                                  cards[index].cardElementTop)),
                           Positioned(
                               bottom: 0,
                               right: 0,
-                              child: SvgPicture.asset(cards[index].cardElementBottom)),
+                              child: SvgPicture.asset(
+                                  cards[index].cardElementBottom)),
                           Positioned(
                               left: 29,
                               top: 48,
-                              child: Text('CARD NUMBER', style: GoogleFonts.inter(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                color: kWhiteColor
-                              ),)
-                          ),
+                              child: Text(
+                                'CARD NUMBER',
+                                style: GoogleFonts.inter(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w400,
+                                    color: kWhiteColor),
+                              )),
                           Positioned(
                               left: 29,
                               top: 65,
-                              child: Text(cards[index].cardNumber, style: GoogleFonts.inter(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w700,
-                                  color: kWhiteColor
-                              ),)
-                          ),
+                              child: Text(
+                                cards[index].cardNumber,
+                                style: GoogleFonts.inter(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    color: kWhiteColor),
+                              )),
                           Positioned(
-                              right: 21,
-                              top: 35,
-                              child: Image.asset(cards[index].cardType, width: 27, height: 27,),
+                            right: 21,
+                            top: 35,
+                            child: Image.asset(
+                              cards[index].cardType,
+                              width: 27,
+                              height: 27,
+                            ),
                           ),
                           Positioned(
                             left: 29,
                             bottom: 50,
-                            child: Text('CARD HOLDERNAME', style: GoogleFonts.inter(
-                              color: kWhiteColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),),
+                            child: Text(
+                              'CARD HOLDERNAME',
+                              style: GoogleFonts.inter(
+                                color: kWhiteColor,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
                           ),
                           Positioned(
                             left: 29,
                             bottom: 25,
-                            child: Text(cards[index].user, style: GoogleFonts.inter(
-                              color: kWhiteColor,
-                              fontSize: 20,
-                              fontWeight: FontWeight.w700,
-                            ),),
+                            child: Text(
+                              cards[index].user,
+                              style: GoogleFonts.inter(
+                                color: kWhiteColor,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
                           ),
                           Positioned(
                             left: 202,
                             bottom: 45,
-                            child: Text('EXPIRY DATE', style: GoogleFonts.inter(
-                              color: kWhiteColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w400,
-                            ),),
+                            child: Text(
+                              'EXPIRY DATE',
+                              style: GoogleFonts.inter(
+                                color: kWhiteColor,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                              ),
+                            ),
                           ),
                           Positioned(
                             left: 202,
                             bottom: 25,
-                            child: Text(cards[index].cardExpired, style: GoogleFonts.inter(
-                              color: kWhiteColor,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                            ),),
+                            child: Text(
+                              cards[index].cardExpired,
+                              style: GoogleFonts.inter(
+                                color: kWhiteColor,
+                                fontSize: 18,
+                                fontWeight: FontWeight.w700,
+                              ),
+                            ),
                           ),
                         ],
                       ),
                     );
                   }),
-            )
+            ),
+
+            //Section Oppérations
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 16, bottom: 13, top: 16, right: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'Operations',
+                    style: GoogleFonts.inder(
+                        fontSize: 15,
+                        fontWeight: FontWeight.w700,
+                        color: kBlackColor),
+                  ),
+                  Row(
+                    children: map<Widget>(datas, (index, selected) {
+                      return Container(
+                        alignment: Alignment.center,
+                        height: 9,
+                        width: 9,
+                        margin: const EdgeInsets.only(right: 8),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: current == index
+                                ? kBlueColor
+                                : kTwentyBlueColor),
+                      );
+                    }),
+                  )
+                ],
+              ),
+            ),
+
+            Container(
+              height: 123,
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.only(left: 16),
+                  itemCount: datas.length,
+                  itemBuilder: (context, index) {
+                    return GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          current = index;
+                        });
+                      },
+                      child: OperationCard(
+                          operation: datas[index].name,
+                          selectedIcon: datas[index].selectedIcon,
+                          unselectedIcon: datas[index].unselectedIcon,
+                          isSelected: current == index,
+                          context: this),
+                    );
+                  }),
+            ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class OperationCard extends StatefulWidget {
+  final String operation;
+  final String selectedIcon;
+  final String unselectedIcon;
+  final bool isSelected;
+  final _HomeScreenState context;
+
+  OperationCard(
+      {required this.operation,
+      required this.selectedIcon,
+      required this.unselectedIcon,
+      required this.isSelected,
+      required this.context});
+
+  @override
+  _OperationCardState createState() => _OperationCardState();
+}
+
+class _OperationCardState extends State<OperationCard> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(right: 16),
+      width: 123,
+      height: 123,
+      decoration: BoxDecoration(
+          boxShadow: const [
+            BoxShadow(
+              color: kTenBlackColor,
+              blurRadius: 10,
+              spreadRadius: 3,
+              offset: Offset(5.0, 5.0),
+            )
+          ],
+          borderRadius: BorderRadius.circular(15),
+          color: widget.isSelected ? kBlueColor : kWhiteColor),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          SvgPicture.asset(
+              widget.isSelected ? widget.selectedIcon : widget.unselectedIcon),
+          SizedBox(
+            height: 9,
+          ),
+          Text(
+            widget.operation,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.inter(
+                fontSize: 15,
+                fontWeight: FontWeight.w700,
+                color: widget.isSelected ? kWhiteColor : kBlueColor),
+          )
+        ],
       ),
     );
   }
