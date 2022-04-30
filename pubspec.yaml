@@ -63,18 +63,20 @@ flutter:
     - assets/svg/bank_withdraw_white.svg
     - assets/svg/drawer_icon.svg
     - assets/svg/ellipse_bottom_blue.svg
-    - assets/svg/ellipse_bottom_pink.svg
     - assets/svg/ellipse_top_blue.svg
-    - assets/svg/ellipse_top_pink.svg
     - assets/svg/insight_tracking_blue.svg
     - assets/svg/insight_tracking_white.svg
     - assets/svg/money_transfer_blue.svg
     - assets/svg/money_transfer_white.svg
+    - assets/svg/ellipse_bottom_bl.svg
+    - assets/svg/ellipse_top_bl.svg
     - assets/images/mastercard_logo.png
+    - assets/images/visacard_logo.png
     - assets/images/nike_photo.png
     - assets/images/uber_photo.png
     - assets/images/user_image.png
     - assets/images/user_photo.png
+    - assets/images/user2_photo.png
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

@@ -9,10 +9,16 @@ class TransactionModel {
 
 List<TransactionModel> transactions = transactionData
     .map((item) => TransactionModel(
-    item['name'], item['photo'], item['date'], item['amount']))
+        item['name'], item['photo'], item['date'], item['amount']))
     .toList();
 
-List<Map<String,dynamic>> transactionData = [
+List<Map<String, dynamic>> transactionData = [
+  {
+    "name": "Payment Send",
+    "photo": "assets/images/user2_photo.png",
+    "date": "15th Mar 2020",
+    "amount": "-\$100.00"
+  },
   {
     "name": "Uber Ride",
     "photo": "assets/images/uber_photo.png",
@@ -30,5 +36,5 @@ List<Map<String,dynamic>> transactionData = [
     "photo": "assets/images/user_photo.png",
     "date": "15th Mar 2020",
     "amount": "+\$250.00"
-  }
+  },
 ];

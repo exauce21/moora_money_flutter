@@ -11,34 +11,36 @@ class CardModel {
       this.cardBackground, this.cardElementTop, this.cardElementBottom);
 }
 
-List<CardModel> cards = cardData.map(
+List<CardModel> cards = cardData
+    .map(
       (item) => CardModel(
-    item['user'],
-    item['cardNumber'],
-    item['cardExpired'],
-    item['cardType'],
-    item['cardBackground'],
-    item['cardElementTop'],
-    item['cardElementBottom'],
-  ),
-).toList();
+        item['user'],
+        item['cardNumber'],
+        item['cardExpired'],
+        item['cardType'],
+        item['cardBackground'],
+        item['cardElementTop'],
+        item['cardElementBottom'],
+      ),
+    )
+    .toList();
 
-List<Map<String,dynamic>> cardData = [
+List<Map<String, dynamic>> cardData = [
   {
-    "user": "Amanda Alex",
+    "user": "Exauce Alex",
     "cardNumber": "**** **** **** 1425",
-    "cardExpired": "03-01-2023",
+    "cardExpired": "01-2023",
     "cardType": "assets/images/mastercard_logo.png",
-    "cardBackground": 0xFF1E1E99,
-    "cardElementTop": "assets/svg/ellipse_top_pink.svg",
-    "cardElementBottom": "assets/svg/ellipse_bottom_pink.svg"
+    "cardBackground": 0xFF151E86,
+    "cardElementTop": "assets/svg/ellipse_top_blue.svg",
+    "cardElementBottom": "assets/svg/ellipse_bottom_blue.svg"
   },
   {
     "user": "Amanda Alex",
     "cardNumber": "**** **** **** 8287",
-    "cardExpired": "03-01-2025",
-    "cardType": "assets/images/mastercard_logo.png",
-    "cardBackground": 0xFFFF70A3,
+    "cardExpired": "03-2025",
+    "cardType": "assets/images/visacard_logo.png",
+    "cardBackground": 0xFF1B2BAE,
     "cardElementTop": "assets/svg/ellipse_top_blue.svg",
     "cardElementBottom": "assets/svg/ellipse_bottom_blue.svg"
   }
