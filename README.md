@@ -18,4 +18,4 @@ samples, guidance on mobile development, and a full API reference.
 ![image](https://user-images.githubusercontent.com/47887636/166114876-61bf2529-666f-480b-a878-5c1f92489c9b.png)
 
 
-'https://www.uplabs.com/posts/moora-money-managing-app-ui-concept'
+UI Design Credit by Innovation Graphics, check on Uplabs `https://www.uplabs.com/posts/moora-money-managing-app-ui-concept`
