@@ -27,7 +27,7 @@ List<CardModel> cards = cardData
 
 List<Map<String, dynamic>> cardData = [
   {
-    "user": "Exauce Alex",
+    "user": "Exauce Yanga",
     "cardNumber": "**** **** **** 1425",
     "cardExpired": "01-2023",
     "cardType": "assets/images/mastercard_logo.png",
@@ -36,7 +36,7 @@ List<Map<String, dynamic>> cardData = [
     "cardElementBottom": "assets/svg/ellipse_bottom_blue.svg"
   },
   {
-    "user": "Amanda Alex",
+    "user": "Exauce Yanga",
     "cardNumber": "**** **** **** 8287",
     "cardExpired": "03-2025",
     "cardType": "assets/images/visacard_logo.png",
